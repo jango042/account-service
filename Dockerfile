@@ -4,6 +4,8 @@ VOLUME /tmp
 
 EXPOSE 8005
 
+RUN mvn install
+
 ADD target/*.jar account-service.jar
 
 ENV JAVA_OPTS=""

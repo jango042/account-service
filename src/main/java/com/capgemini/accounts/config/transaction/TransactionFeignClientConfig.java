@@ -1,14 +1,15 @@
-package com.capgemini.accounts.config.customer;
+package com.capgemini.accounts.config.transaction;
 
+import com.capgemini.accounts.config.customer.CustomerFeignRequestInterceptor;
 import com.capgemini.accounts.helpers.FeignErrorDecoder;
 import feign.RequestInterceptor;
 import feign.codec.ErrorDecoder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 
-public class CustomerFeignClientConfig {
+public class TransactionFeignClientConfig {
 
-  @Value("${capgemini.customer.secret.key}")
+  @Value("${capgemini.transacton.secret.key}")
   private String secretKey;
 
   @Bean

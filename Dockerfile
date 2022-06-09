@@ -4,7 +4,7 @@ VOLUME /tmp
 
 EXPOSE 8005
 
-RUN mvn install
+RUN mvn clean install
 
 ADD target/*.jar account-service.jar
 

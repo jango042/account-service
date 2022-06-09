@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(name = "transactions", url = "${capgemini.transaction.base.url}", configuration = TransactionFeignClientConfig.class)
 public interface TransactionFeignClient {
 
-  @PostMapping("/api/v1/transaction")
+  @PostMapping("/api/v1/transaction/")
   BasicResponse addTransaction(TransactionRequest request);
 
 

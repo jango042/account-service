@@ -1,6 +1,5 @@
 package com.capgemini.accounts.dto.response;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,10 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AccountResponse {
 
-  private String firstName;
-  private String surname;
+  private String customerId;
+  private String accountId;
   private Double balance;
-  private List<AccountDetailResponse> accounts;
 
 
 }

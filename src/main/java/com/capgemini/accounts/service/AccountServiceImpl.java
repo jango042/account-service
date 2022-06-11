@@ -70,13 +70,19 @@ public class AccountServiceImpl implements AccountService{
 
   @Override
   public BasicResponse listAccounts(String customerId) {
-    List<AccountResponse> accountResponses = new ArrayList<>();
-    for (Account account : accountRepository.findByCustomerId(customerId)) {
-      AccountResponse accountResponse = new ModelMapper().map(account, AccountResponse.class);
-      accountResponses.add(accountResponse);
+    BasicResponse verificationResponse = customerFeignClient.validateSecretKey();
+    if (verificationResponse.getStatus().equals(Status.SUCCESS)) {
+      List<AccountResponse> accountResponses = new ArrayList<>();
+      for (Account account : accountRepository.findByCustomerId(customerId)) {
+        AccountResponse accountResponse = new ModelMapper().map(account, AccountResponse.class);
+        accountResponses.add(accountResponse);
 
+      }
+      return new BasicResponse(Status.SUCCESS, accountResponses);
+    } else {
+      return verificationResponse;
     }
-    return new BasicResponse(Status.SUCCESS, accountResponses);
+
   }
 
 }

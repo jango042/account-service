@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 public class TransactionFeignClientConfig {
 
-  @Value("${capgemini.transacton.secret.key}")
+  @Value("${jango.transacton.secret.key}")
   private String secretKey;
 
   @Bean

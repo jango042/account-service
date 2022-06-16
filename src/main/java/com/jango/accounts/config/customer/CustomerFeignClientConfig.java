@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 public class CustomerFeignClientConfig {
 
-  @Value("${capgemini.customer.secret.key}")
+  @Value("${jango.customer.secret.key}")
   private String secretKey;
 
   @Bean
